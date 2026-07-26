@@ -8,8 +8,7 @@
     var root = document.documentElement;
     var toggle = document.getElementById("themeToggle");
     var stored = localStorage.getItem("theme");
-    var prefersDark = window.matchMedia("(prefers-color-scheme: dark)").matches;
-    var current = stored || (prefersDark ? "dark" : "light");
+    var current = stored === "dark" ? "dark" : "light";
     root.setAttribute("data-theme", current);
     toggle.setAttribute("aria-pressed", String(current === "dark"));
 
