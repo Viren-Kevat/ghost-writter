@@ -1,0 +1,18 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 1000" role="img" aria-label="Portrait placeholder">
+  <rect width="800" height="1000" fill="#EDE8DC"/>
+  <g fill="none" stroke="rgba(26,23,18,0.12)" stroke-width="1">
+    <path d="M0 200H800M0 400H800M0 600H800M0 800H800M200 0V1000M400 0V1000M600 0V1000"/>
+  </g>
+  <circle cx="400" cy="405" r="185" fill="#C13B2E" opacity="0.10"/>
+  <path d="M400 220c78 0 132 60 132 141 0 84-59 149-132 149s-132-65-132-149c0-81 54-141 132-141Z" fill="none" stroke="#C13B2E" stroke-width="2.5"/>
+  <path d="M170 830c0-133 103-232 230-232s230 99 230 232" fill="none" stroke="#C13B2E" stroke-width="2.5"/>
+  <path d="M400 220v290M268 361h264" stroke="rgba(26,23,18,0.26)" stroke-width="1" stroke-dasharray="5 7"/>
+  <g font-family="'JetBrains Mono', ui-monospace, monospace" font-size="20" letter-spacing="3" fill="#8A2A20">
+    <text x="60" y="80">PORTRAIT — REPLACE ME</text>
+  </g>
+  <g font-family="'JetBrains Mono', ui-monospace, monospace" font-size="17" letter-spacing="1.5" fill="#6B6862">
+    <text x="60" y="930">assets/img/portrait-placeholder.svg</text>
+    <text x="60" y="960">recommended 4:5 · min 800×1000</text>
+  </g>
+  <rect x="30" y="30" width="740" height="940" fill="none" stroke="rgba(26,23,18,0.26)" stroke-width="1"/>
+</svg>

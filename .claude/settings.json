@@ -1,0 +1,7 @@
+{
+  "permissions": {
+    "allow": [
+      "PowerShell(Add-Type -AssemblyName System.Drawing; $d=\"C:\\\\Users\\\\VICTUS\\\\AppData\\\\Local\\\\Temp\\\\claude\\\\e--viren-development-smrati\\\\80ffdc8d-616b-4620-a7f6-c3b6ca8b01cf\\\\scratchpad\\\\docx\\\\x\\\\word\\\\media\"; Get-ChildItem $d | Sort-Object {[int]\\($_.BaseName -replace 'image',''\\)} | ForEach-Object { $i=[System.Drawing.Image]::FromFile\\($_.FullName\\); \"{0}  {1}x{2}  {3}KB\" -f $_.Name,$i.Width,$i.Height,[math]::Round\\($_.Length/1kb\\); $i.Dispose\\(\\) })"
+    ]
+  }
+}

@@ -1,0 +1,18 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 500" role="img" aria-label="Session photo placeholder">
+  <rect width="800" height="500" fill="#EDE8DC"/>
+  <g stroke="rgba(26,23,18,0.12)" stroke-width="1"><path d="M0 125H800M0 250H800M0 375H800M200 0V500M400 0V500M600 0V500"/></g>
+  <path d="M120 350L230 160l110 190Z" fill="#C13B2E" opacity="0.12"/>
+  <path d="M120 350L230 160l110 190Z" fill="none" stroke="#C13B2E" stroke-width="2.5"/>
+  <path d="M395 350h250M395 350V180" fill="none" stroke="rgba(26,23,18,0.26)" stroke-width="1.5"/>
+  <g fill="#C13B2E" opacity="0.85">
+    <rect x="415" y="290" width="34" height="60"/><rect x="469" y="250" width="34" height="100"/>
+    <rect x="523" y="215" width="34" height="135"/><rect x="577" y="180" width="34" height="170"/>
+  </g>
+  <g font-family="'JetBrains Mono', ui-monospace, monospace" fill="#8A2A20" font-size="16" letter-spacing="2.5">
+    <text x="90" y="70">SESSION 03 — REPLACE ME</text>
+  </g>
+  <g font-family="'JetBrains Mono', ui-monospace, monospace" fill="#6B6862" font-size="14" letter-spacing="1">
+    <text x="90" y="440">assets/img/session-3-placeholder.svg · 16:10</text>
+  </g>
+  <rect x="24" y="24" width="752" height="452" fill="none" stroke="rgba(26,23,18,0.26)"/>
+</svg>
