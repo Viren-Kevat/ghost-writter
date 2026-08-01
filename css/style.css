@@ -602,6 +602,6 @@ td:has(.countup):last-of-type .countup, .ledger__text--after .countup{ color:var
 .offcanvas{ box-shadow:none !important; }
 .btn:focus, .btn.focus{ box-shadow:none; }
 ::selection{
-  background-color: var( --surface-2);
+  background-color: var(--ink);
   color: var(--red);
 }
