@@ -321,32 +321,141 @@ table{ border-collapse:collapse; width:100%; }
 }
 .about__meta i{ color:var(--red); width:16px; }
 
-/* ---------- services ---------- */
-.service-row{
-  border-top:1px solid var(--border); padding:26px 0; cursor:pointer;
+/* ---------- services — luminous tree ----------
+   A dark night band regardless of site theme, holding a canvas-generated
+   glowing gold tree (seeded, deterministic — see banyan() in main.js). */
+.services{
+  --night-bg:#0D0B08;
+  --night-border:rgba(232,200,122,.16);
+  --gold:#C9963F;
+  --gold-bright:#E8C87A;
+  --gold-spark:#FFF2CE;
+  --night-ink:#F2EEE6;
+  --night-ink-2:#B9AF98;
+  --accent:#E15B4C;
+  background:var(--night-bg);
+  border-top:1px solid var(--night-border);
+  border-bottom:1px solid var(--night-border);
 }
-.service-index li:last-child{ border-bottom:1px solid var(--border); }
-.service-row__head{ display:flex; align-items:center; gap:22px; }
-.service-row__num{ font-family:var(--font-mono); color:var(--ink-muted); font-size:14px; width:26px; flex-shrink:0; }
-.service-row__name{
-  font-family:var(--font-display); font-size:clamp(20px,2.6vw,30px); flex:1; transition:color .25s, transform .25s;
+.services .chapter-mark{ color:var(--gold-bright); }
+.services .section-title{ color:var(--night-ink); }
+/* .services .container-edit{
+  padding: 0;
+} */
+/* tree on the left, heading/copy on the right — grid placement so the
+   heading can still come first in the DOM (reading order) while sitting
+   visually on the right */
+.services__layout{
+  display:grid; grid-template-columns:1.4fr 5.1fr; align-items:center; gap:16px 56px;
 }
-.service-row__icon{ color:var(--ink-muted); opacity:0; transform:translate(-6px,6px); transition:opacity .25s, transform .25s, color .25s; }
-.service-row__desc{
-  font-size:15px; color:var(--ink-secondary); max-width:56ch; margin:14px 0 0 48px;
-  max-height:0; opacity:0; overflow:hidden; transition:max-height .35s ease, opacity .35s ease, margin .35s ease;
+.services__tree{ grid-column:2; grid-row:1; }
+.services__intro{ grid-column:1; grid-row:1; }
+@media (max-width:900px){
+  .services__layout{ grid-template-columns:1fr; }
+  .services__intro{ grid-column:1; grid-row:1; }
+  .services__tree{ grid-column:1; grid-row:2; }
 }
-.service-row:hover, .service-row:focus-visible, .service-row.is-open{
-  outline:none;
+
+.tree-wrap{ margin-top:12px; }
+.services__tree.tree-wrap{ margin-top:0; }
+.tree-stage{
+  position:relative; width:100%; max-width:1200px; margin:0 auto;
+  aspect-ratio:1000/800;
 }
-.service-row:hover .service-row__name, .service-row:focus-visible .service-row__name, .service-row.is-open .service-row__name{
-  color:var(--red); transform:translateX(6px);
+/* the canvas alone gets clipped + rounded — the legend/leaf-cards are a
+   sibling with no overflow clipping, since their popup cards intentionally
+   extend outside the stage bounds and must not be cut off */
+.tree-canvas-clip{ position:absolute; inset:0; overflow:hidden; border-radius:var(--radius-md); }
+.tree-canvas{ position:absolute; inset:0; width:100%; height:100%; display:block; }
+
+/* legend — real content, absolutely positioned on the stage from the
+   generated tree's own node coordinates (see positionLeaves() in main.js) */
+.tree-legend{ position:absolute; inset:0; z-index:3; }
+.tree-leaf{
+  position:absolute; opacity:0; transform:translateY(6px);
+  transition:opacity .5s ease, transform .5s ease;
+  transition-delay:calc(1400ms + var(--i, 0) * 60ms);
 }
-.service-row:hover .service-row__icon, .service-row:focus-visible .service-row__icon, .service-row.is-open .service-row__icon{
-  opacity:1; transform:translate(0,0); color:var(--red);
+.tree-leaf.is-visible{ opacity:1; transform:none; }
+@media (prefers-reduced-motion: reduce){
+  .tree-leaf{ transition:none; transition-delay:0s; }
 }
-.service-row:hover .service-row__desc, .service-row:focus-visible .service-row__desc, .service-row.is-open .service-row__desc{
-  max-height:80px; opacity:1; margin-top:14px;
+
+.tree-leaf__dot{
+  width:8px; height:8px; border-radius:50%; flex:none;
+  background:var(--gold-spark);
+  box-shadow:0 0 6px 1px var(--gold-bright), 0 0 14px 3px rgba(232,200,122,.5);
+  transition:background .3s ease, box-shadow .3s ease, opacity .3s ease;
+}
+.tree-stage[data-active] .tree-leaf__dot{ opacity:.45; }
+.tree-stage[data-active] .tree-leaf.is-active .tree-leaf__dot{ opacity:1; }
+.tree-leaf.is-active .tree-leaf__dot{
+  background:var(--accent);
+  box-shadow:0 0 8px 2px var(--accent), 0 0 20px 6px rgba(225,91,76,.6);
+}
+@media (prefers-reduced-motion: no-preference){
+  .tree-leaf__dot{ animation:leafDotPulse 3.2s ease-in-out infinite; }
+  .tree-leaf:nth-child(2n) .tree-leaf__dot{ animation-delay:-1.1s; }
+  .tree-leaf:nth-child(3n) .tree-leaf__dot{ animation-delay:-2s; }
+}
+@keyframes leafDotPulse{
+  0%,100%{ opacity:.75; transform:scale(.9); }
+  50%{ opacity:1; transform:scale(1.15); }
+}
+
+.tree-leaf__btn{
+  position:relative; transform:translate(-50%,-50%) translateY(var(--yshift, 0px));
+  display:flex; align-items:center; gap:8px; white-space:nowrap;
+  font-family:var(--font-mono); font-size:12px; color:var(--night-ink-2);
+  background:rgba(13,11,8,.82); backdrop-filter:blur(2px);
+  border:1px solid var(--night-border); border-radius:999px;
+  padding:6px 14px 6px 8px; z-index:4;
+  transition:color .2s ease, border-color .2s ease, background .2s ease;
+}
+.tree-leaf__num{ font-weight:600; color:var(--gold-bright); }
+.tree-leaf__btn:hover, .tree-leaf__btn:focus-visible{ border-color:var(--accent); color:var(--night-ink); }
+.tree-leaf.is-active .tree-leaf__btn{
+  border-color:var(--accent); color:var(--night-ink); background:rgba(225,91,76,.16);
+}
+
+.leaf-card{
+  position:absolute; top:50%; width:230px; max-width:min(230px, 42vw); z-index:5;
+  padding:14px 16px; border:1px solid var(--night-border); background:#120F0A;
+  font-size:13.5px; line-height:1.5; color:var(--night-ink-2);
+  max-height:0; opacity:0; overflow:hidden; pointer-events:none;
+  transition:max-height .35s ease, opacity .3s ease, transform .3s ease;
+  transform:translateY(calc(-50% + var(--yshift, 0px))) translateY(6px);
+  box-shadow:0 14px 32px rgba(0,0,0,.5);
+}
+.leaf-card p{ margin:0; }
+.tree-leaf[data-side="left"] .leaf-card{ right:calc(100% + 250px); }
+.tree-leaf[data-side="right"] .leaf-card{ left:calc(70% + 0px); }
+
+.tree-leaf:hover .leaf-card,
+.tree-leaf:focus-within .leaf-card,
+.tree-leaf.is-active .leaf-card{
+  max-height:170px; opacity:1; pointer-events:auto;
+  transform:translateY(calc(-50% + var(--yshift, 0px))) translateY(0);
+}
+
+/* mobile caption strip (shown instead of leaf-cards, see media query) */
+.tree-caption{ display:none; }
+
+@media (max-width: 720px){
+  .tree-leaf__name{ display:none; }
+  .tree-leaf__btn{
+    width:32px; height:32px; padding:0; justify-content:center; border-radius:50%;
+  }
+  .leaf-card{ display:none; }
+  .tree-stage{ width:100%; }
+
+  .tree-caption{
+    display:block; margin-top:24px; padding:20px 22px; border:1px solid var(--night-border);
+    background:#120F0A; color:var(--night-ink-2); min-height:118px;
+  }
+  .tree-caption__num{ font-family:var(--font-mono); font-size:12px; color:var(--accent); letter-spacing:.08em; }
+  .tree-caption__name{ font-family:var(--font-display); font-size:19px; margin:6px 0 8px; color:var(--night-ink); }
+  .tree-caption__desc{ font-size:14px; color:var(--night-ink-2); margin:0; }
 }
 
 /* ---------- executive exhibits ---------- */
@@ -604,4 +713,7 @@ td:has(.countup):last-of-type .countup, .ledger__text--after .countup{ color:var
 ::selection{
   background-color: var(--red);
   color: var(--ink);
+}
+.services-container{
+  display: flex;
 }

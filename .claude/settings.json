@@ -1,7 +1,29 @@
 {
   "permissions": {
     "allow": [
-      "PowerShell(Add-Type -AssemblyName System.Drawing; $d=\"C:\\\\Users\\\\VICTUS\\\\AppData\\\\Local\\\\Temp\\\\claude\\\\e--viren-development-smrati\\\\80ffdc8d-616b-4620-a7f6-c3b6ca8b01cf\\\\scratchpad\\\\docx\\\\x\\\\word\\\\media\"; Get-ChildItem $d | Sort-Object {[int]\\($_.BaseName -replace 'image',''\\)} | ForEach-Object { $i=[System.Drawing.Image]::FromFile\\($_.FullName\\); \"{0}  {1}x{2}  {3}KB\" -f $_.Name,$i.Width,$i.Height,[math]::Round\\($_.Length/1kb\\); $i.Dispose\\(\\) })"
+      "PowerShell(Add-Type -AssemblyName System.Drawing; $d=\"C:\\\\Users\\\\VICTUS\\\\AppData\\\\Local\\\\Temp\\\\claude\\\\e--viren-development-smrati\\\\80ffdc8d-616b-4620-a7f6-c3b6ca8b01cf\\\\scratchpad\\\\docx\\\\x\\\\word\\\\media\"; Get-ChildItem $d | Sort-Object {[int]\\($_.BaseName -replace 'image',''\\)} | ForEach-Object { $i=[System.Drawing.Image]::FromFile\\($_.FullName\\); \"{0}  {1}x{2}  {3}KB\" -f $_.Name,$i.Width,$i.Height,[math]::Round\\($_.Length/1kb\\); $i.Dispose\\(\\) })",
+      "Bash(node generate-tree.js)",
+      "Bash(\"/c/Program Files/Google/Chrome/Application/chrome.exe\" --headless=new --disable-gpu --no-sandbox --screenshot=preview.png --window-size=1200,900 \"file:///C:/Users/VICTUS/AppData/Local/Temp/claude/e--viren-development-smrati/d774e571-cbb2-433d-a6d1-1a936d5e2c22/scratchpad/tree/preview.html\")",
+      "Bash(\"/c/Program Files/Google/Chrome/Application/chrome.exe\" --headless=new --disable-gpu --no-sandbox \"--screenshot=C:\\\\Users\\\\VICTUS\\\\AppData\\\\Local\\\\Temp\\\\claude\\\\e--viren-development-smrati\\\\d774e571-cbb2-433d-a6d1-1a936d5e2c22\\\\scratchpad\\\\tree\\\\preview.png\" --window-size=1200,900 \"file:///C:/Users/VICTUS/AppData/Local/Temp/claude/e--viren-development-smrati/d774e571-cbb2-433d-a6d1-1a936d5e2c22/scratchpad/tree/preview.html\")",
+      "Bash(node bake.js)",
+      "Bash(node cdp.js \"http://localhost:8791/#services\" shot-dark.png 1400 1200 2800 dark desktop)",
+      "Bash(node cdp.js \"http://localhost:8791/#services\" shot-dark2.png 1400 1200 2800 dark desktop)",
+      "Bash(node cdp.js \"http://localhost:8791/#services\" shot-mobile.png 390 844 2800 light mobile)",
+      "WebSearch",
+      "WebFetch(domain:pendrawings.me)",
+      "WebFetch(domain:www.virtualartacademy.com)",
+      "WebFetch(domain:en.wikipedia.org)",
+      "Bash(node v3-gen.js)",
+      "Bash(\"/c/Program Files/Google/Chrome/Application/chrome.exe\" --headless=new --disable-gpu --no-sandbox \"--screenshot=C:\\\\Users\\\\VICTUS\\\\AppData\\\\Local\\\\Temp\\\\claude\\\\e--viren-development-smrati\\\\d774e571-cbb2-433d-a6d1-1a936d5e2c22\\\\scratchpad\\\\tree\\\\v3-step1.png\" --window-size=1000,800 \"file:///C:/Users/VICTUS/AppData/Local/Temp/claude/e--viren-development-smrati/d774e571-cbb2-433d-a6d1-1a936d5e2c22/scratchpad/tree/v3-step1.html\")",
+      "Bash(\"/c/Program Files/Google/Chrome/Application/chrome.exe\" --headless=new --disable-gpu --no-sandbox \"--screenshot=C:\\\\Users\\\\VICTUS\\\\AppData\\\\Local\\\\Temp\\\\claude\\\\e--viren-development-smrati\\\\d774e571-cbb2-433d-a6d1-1a936d5e2c22\\\\scratchpad\\\\tree\\\\v3-step3.png\" --window-size=1000,800 \"file:///C:/Users/VICTUS/AppData/Local/Temp/claude/e--viren-development-smrati/d774e571-cbb2-433d-a6d1-1a936d5e2c22/scratchpad/tree/v3-step1.html\")",
+      "Bash(grep -n \"feet.map\\\\|</svg>\\\\|circle cx=\\\\\"\\\\${CROTCH\" \"C:/Users/VICTUS/AppData/Local/Temp/claude/e--viren-development-smrati/d774e571-cbb2-433d-a6d1-1a936d5e2c22/scratchpad/tree/v3-gen.js\")",
+      "Bash(\"/c/Program Files/Google/Chrome/Application/chrome.exe\" --headless=new --disable-gpu --no-sandbox \"--screenshot=C:\\\\Users\\\\VICTUS\\\\AppData\\\\Local\\\\Temp\\\\claude\\\\e--viren-development-smrati\\\\d774e571-cbb2-433d-a6d1-1a936d5e2c22\\\\scratchpad\\\\tree\\\\v3-step4.png\" --window-size=1000,800 \"file:///C:/Users/VICTUS/AppData/Local/Temp/claude/e--viren-development-smrati/d774e571-cbb2-433d-a6d1-1a936d5e2c22/scratchpad/tree/v3-step1.html\")",
+      "Bash(\"/c/Program Files/Google/Chrome/Application/chrome.exe\" --headless=new --disable-gpu --no-sandbox \"--screenshot=C:\\\\Users\\\\VICTUS\\\\AppData\\\\Local\\\\Temp\\\\claude\\\\e--viren-development-smrati\\\\d774e571-cbb2-433d-a6d1-1a936d5e2c22\\\\scratchpad\\\\tree\\\\v3-step4b.png\" --window-size=1000,850 \"file:///C:/Users/VICTUS/AppData/Local/Temp/claude/e--viren-development-smrati/d774e571-cbb2-433d-a6d1-1a936d5e2c22/scratchpad/tree/v3-step1.html\")",
+      "Bash(tasklist //FI \"IMAGENAME eq chrome.exe\")",
+      "Bash(taskkill //F //IM chrome.exe)",
+      "Bash(\"/c/Program Files/Google/Chrome/Application/chrome.exe\" --headless=new --disable-gpu --no-sandbox \"--screenshot=C:\\\\Users\\\\VICTUS\\\\AppData\\\\Local\\\\Temp\\\\claude\\\\e--viren-development-smrati\\\\d774e571-cbb2-433d-a6d1-1a936d5e2c22\\\\scratchpad\\\\tree\\\\v3-step4f.png\" --window-size=1000,850 \"file:///C:/Users/VICTUS/AppData/Local/Temp/claude/e--viren-development-smrati/d774e571-cbb2-433d-a6d1-1a936d5e2c22/scratchpad/tree/v3-step1.html\")",
+      "Bash(node bake-v3.js)",
+      "Bash(node cdp-hover.js 04 shot-hover-04.png)"
     ]
   }
 }
